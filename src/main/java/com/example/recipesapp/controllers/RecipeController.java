@@ -13,7 +13,7 @@ public class RecipeController {
     public RecipeController(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
-    @GetMapping
+    @PostMapping
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
         Recipe createRecipe = recipeService.addRecipe(recipe);
         return ResponseEntity.ok(createRecipe);

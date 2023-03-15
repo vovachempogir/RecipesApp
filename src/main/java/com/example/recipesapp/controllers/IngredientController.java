@@ -14,7 +14,7 @@ public class IngredientController {
         this.ingredientService = ingredientService;
     }
 
-    @GetMapping
+    @PostMapping
     public Ingredient createIngredient(@RequestBody Ingredient ingredient) {
         Ingredient createIngredient = ingredientService.addIngredient(ingredient);
         return createIngredient;
