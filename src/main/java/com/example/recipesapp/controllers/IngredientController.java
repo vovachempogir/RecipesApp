@@ -5,6 +5,9 @@ import com.example.recipesapp.services.IngredientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/ingredient")
 public class IngredientController {
@@ -27,6 +30,11 @@ public class IngredientController {
             return  ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(ingredient);
+    }
+
+    @GetMapping("/allIngredient")
+    public List<Ingredient> getAll() {
+        return ingredientService.getAllIngredient();
     }
 
     @PutMapping("/{ingredientNumber}")

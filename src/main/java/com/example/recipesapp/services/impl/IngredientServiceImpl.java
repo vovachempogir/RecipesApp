@@ -4,7 +4,9 @@ import com.example.recipesapp.model.Ingredient;
 import com.example.recipesapp.services.IngredientService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -21,6 +23,15 @@ public class IngredientServiceImpl implements IngredientService {
     @Override
     public Ingredient getIngredient(long ingredientNumber) {
         return ingredients.get(ingredientNumber);
+    }
+
+    @Override
+    public List<Ingredient> getAllIngredient() {
+        List allIngredient = new ArrayList<>();
+        for (Map.Entry<Long, Ingredient> ingredient : ingredients.entrySet()) {
+            allIngredient.add(ingredient);
+        }
+        return allIngredient;
     }
 
     @Override

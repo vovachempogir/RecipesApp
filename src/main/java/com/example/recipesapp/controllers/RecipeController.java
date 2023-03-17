@@ -5,6 +5,8 @@ import com.example.recipesapp.services.RecipeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/recipe")
 public class RecipeController {
@@ -27,6 +29,11 @@ public class RecipeController {
             return  ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(recipe);
+    }
+
+    @GetMapping
+    public List<Recipe> getAllRecipe() {
+        return recipeService.getAllRecipe();
     }
 
     @PutMapping("/{recipeNumber}")

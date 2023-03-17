@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Ingredient {
+public class Ingredient  {
     private String name;
     private int numberOfIngredients;
     private String unitOfMeasurement;
