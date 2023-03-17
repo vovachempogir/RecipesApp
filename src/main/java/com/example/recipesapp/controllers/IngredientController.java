@@ -32,7 +32,7 @@ public class IngredientController {
         return ResponseEntity.ok(ingredient);
     }
 
-    @GetMapping("/allIngredient")
+    @GetMapping("/")
     public List<Ingredient> getAll() {
         return ingredientService.getAllIngredient();
     }

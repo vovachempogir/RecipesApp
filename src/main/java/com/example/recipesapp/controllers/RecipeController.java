@@ -31,7 +31,7 @@ public class RecipeController {
         return ResponseEntity.ok(recipe);
     }
 
-    @GetMapping("/allRecipe")
+    @GetMapping("/")
     public List<Recipe> getAllRecipe() {
         return recipeService.getAllRecipe();
     }
