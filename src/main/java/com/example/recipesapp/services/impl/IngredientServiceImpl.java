@@ -2,6 +2,7 @@ package com.example.recipesapp.services.impl;
 
 import com.example.recipesapp.model.Ingredient;
 import com.example.recipesapp.services.IngredientService;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,11 +23,13 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Ingredient getIngredient(long ingredientNumber) {
+        ObjectUtils.isNotEmpty(ingredients);
         return ingredients.get(ingredientNumber);
     }
 
     @Override
     public List<Ingredient> getAllIngredient() {
+        ObjectUtils.isNotEmpty(ingredients);
         List allIngredient = new ArrayList<>();
         for (Map.Entry<Long, Ingredient> ingredient : ingredients.entrySet()) {
             allIngredient.add(ingredient);
@@ -36,6 +39,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Ingredient editIngredient(long ingredientNumber, Ingredient ingredient) {
+        ObjectUtils.isNotEmpty(ingredients);
         if (ingredients.containsKey(ingredientNumber)) {
             ingredients.put(ingredientNumber, ingredient);
             return ingredient;
@@ -45,6 +49,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public boolean deleteIngredient(long ingredientNumber) {
+        ObjectUtils.isNotEmpty(ingredients);
         if (ingredients.containsKey(ingredientNumber)) {
             ingredients.remove(ingredientNumber);
             return true;
