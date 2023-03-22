@@ -1,6 +1,5 @@
 package com.example.recipesapp.controllers;
 
-import com.example.recipesapp.model.Ingredient;
 import com.example.recipesapp.model.Recipe;
 import com.example.recipesapp.services.RecipeService;
 import io.swagger.v3.oas.annotations.Operation;
