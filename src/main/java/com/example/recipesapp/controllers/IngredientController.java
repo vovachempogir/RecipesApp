@@ -2,14 +2,15 @@ package com.example.recipesapp.controllers;
 
 import com.example.recipesapp.model.Ingredient;
 import com.example.recipesapp.services.IngredientService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/ingredient")
+@Tag(name = "Ингредиенты", description = "CRUD-операции и другие эндпоинты для работы с ингредиентами")
 public class IngredientController {
     private final IngredientService ingredientService;
 
@@ -27,7 +28,7 @@ public class IngredientController {
     public ResponseEntity<Ingredient> getIngredient(@PathVariable long ingredientNumber) {
         Ingredient ingredient = ingredientService.getIngredient(ingredientNumber);
         if (ingredient == null) {
-            return  ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(ingredient);
     }

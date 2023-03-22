@@ -1,10 +1,11 @@
 package com.example.recipesapp.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Tag(name = "Первый запуск")
 public class FirstControllers {
     @GetMapping
     public String app() {

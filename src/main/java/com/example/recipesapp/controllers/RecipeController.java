@@ -2,6 +2,7 @@ package com.example.recipesapp.controllers;
 
 import com.example.recipesapp.model.Recipe;
 import com.example.recipesapp.services.RecipeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/recipe")
+@Tag(name = "Рецепты", description = "CRUD-операции и другие эндпоинты для работы с рецептами")
 public class RecipeController {
     private final RecipeService recipeService;
 
@@ -23,10 +25,10 @@ public class RecipeController {
     }
 
     @GetMapping("/{recipeNumber}")
-    public ResponseEntity<Recipe> getRecipe(@PathVariable long recipeNumber){
+    public ResponseEntity<Recipe> getRecipe(@PathVariable long recipeNumber) {
         Recipe recipe = recipeService.getRecipe(recipeNumber);
         if (recipe == null) {
-            return  ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(recipe);
     }
