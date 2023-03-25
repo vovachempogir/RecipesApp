@@ -56,6 +56,7 @@ public class RecipeServiceImpl implements RecipeService {
         ObjectUtils.isNotEmpty(recipes);
         if (recipes.containsKey(recipeNumber)) {
             recipes.put(recipeNumber, recipe);
+            saveToFile();
             return recipe;
         }
         return recipe;

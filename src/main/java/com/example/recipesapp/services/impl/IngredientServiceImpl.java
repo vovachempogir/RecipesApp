@@ -60,6 +60,7 @@ public class IngredientServiceImpl implements IngredientService {
         ObjectUtils.isNotEmpty(ingredients);
         if (ingredients.containsKey(ingredientNumber)) {
             ingredients.put(ingredientNumber, ingredient);
+            saveToFile();
             return ingredient;
         }
         return ingredient;
