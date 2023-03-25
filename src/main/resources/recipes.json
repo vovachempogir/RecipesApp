@@ -1,1 +1,1 @@
-{"0":{"name":"Яичница","cookingTime":10,"ingredients":[{"name":"соль","numberOfIngredients":1,"unitOfMeasurement":"чайная ложка"}],"cookingSteps":["1. Разогреть сковородку"]}}
+{"0":{"name":"Яйцо","cookingTime":10,"ingredients":[{"name":"Яйцо","numberOfIngredients":2,"unitOfMeasurement":"шт."}],"cookingSteps":["1Бросить яйца в холодную воду и варить до готовности"]}}

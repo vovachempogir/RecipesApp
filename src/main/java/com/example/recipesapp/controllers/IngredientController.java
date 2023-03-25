@@ -34,7 +34,7 @@ public class IngredientController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Ингридиент успешно сощдан",
+                    description = "Ингридиент успешно создан",
                     content = {
                             @Content(
                                     mediaType = "application/json",
