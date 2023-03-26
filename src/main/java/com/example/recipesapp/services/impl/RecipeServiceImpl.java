@@ -59,7 +59,7 @@ public class RecipeServiceImpl implements RecipeService {
             saveToFile();
             return recipe;
         }
-        return recipe;
+        return null;
     }
 
     @Override

@@ -63,7 +63,7 @@ public class IngredientServiceImpl implements IngredientService {
             saveToFile();
             return ingredient;
         }
-        return ingredient;
+        return  null;
     }
 
     @Override
