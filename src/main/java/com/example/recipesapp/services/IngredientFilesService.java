@@ -1,6 +1,5 @@
 package com.example.recipesapp.services;
 
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 
@@ -12,6 +11,4 @@ public interface IngredientFilesService {
     File getDataFile();
 
     boolean cleanDataFile();
-
-    boolean uploadDataFile(MultipartFile file);
 }
