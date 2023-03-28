@@ -61,6 +61,7 @@ public class IngredientServiceImpl implements IngredientService {
         if (ingredients.containsKey(ingredientNumber)) {
             ingredients.put(ingredientNumber, ingredient);
             saveToFile();
+            readFromFile();
             return ingredient;
         }
         return  null;
