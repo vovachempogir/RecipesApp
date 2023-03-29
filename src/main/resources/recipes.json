@@ -1,0 +1,16 @@
+{
+  "0": {
+    "name": "Яйцо",
+    "cookingTime": 10,
+    "ingredients": [
+      {
+        "name": "Яйцо",
+        "numberOfIngredients": 2,
+        "unitOfMeasurement": "шт."
+      }
+    ],
+    "cookingSteps": [
+      "1.Бросить яйца в холодную воду и варить до готовности"
+    ]
+  }
+}
