@@ -25,7 +25,11 @@ public class RecipeServiceImpl implements RecipeService {
 
     @PostConstruct
     private void init() {
-        readFromFile();
+        try {
+            readFromFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -64,7 +68,7 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public boolean deleteIngredient(long recipeNumber) {
+    public boolean deleteRecipe(long recipeNumber) {
         ObjectUtils.isNotEmpty(recipes);
         if (recipes.containsKey(recipeNumber)) {
             recipes.remove(recipeNumber);

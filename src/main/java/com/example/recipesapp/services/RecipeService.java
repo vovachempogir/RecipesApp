@@ -13,5 +13,5 @@ public interface RecipeService {
 
     Recipe editRecipe(long recipeNumber, Recipe recipe);
 
-    boolean deleteIngredient(long recipeNumber);
+    boolean deleteRecipe(long recipeNumber);
 }

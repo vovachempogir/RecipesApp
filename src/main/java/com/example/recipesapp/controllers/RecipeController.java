@@ -181,7 +181,7 @@ public class RecipeController {
             )
     })
     public ResponseEntity<Recipe> deleteRecipe(@PathVariable long recipeNumber) {
-        if (recipeService.deleteIngredient(recipeNumber)) {
+        if (recipeService.deleteRecipe(recipeNumber)) {
             ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
