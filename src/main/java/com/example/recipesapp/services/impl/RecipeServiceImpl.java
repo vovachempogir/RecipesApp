@@ -10,6 +10,11 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 @Service
@@ -95,5 +100,35 @@ public class RecipeServiceImpl implements RecipeService {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public Path createTextDataFile() throws IOException {
+        Path path = recipeFilesService.createTempFile("recipesDataFile");
+        for (Recipe recipe : recipes.values()) {
+            try (Writer writer = Files.newBufferedWriter(path, StandardOpenOption.APPEND)) {
+                writer.append(recipe.getName()).append("\n \n").append("Время приготовления: ").append(String.valueOf(recipe.getCookingTime())).append(" минуты.").append("\n");
+                writer.append("\n");
+                writer.append("Ингредиенты: \n \n");
+                recipe.getIngredients().forEach(ingredient -> {
+                    try {
+                        writer.append(" - ").append(ingredient.getName()).append(" - ").append(String.valueOf(ingredient.getNumberOfIngredients())).append(" ").append(ingredient.getUnitOfMeasurement()).append("\n \n");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                writer.append("\n");
+                writer.append("Инструкция приготовления: \n \n");
+                recipe.getCookingSteps().forEach(step -> {
+                    try {
+                        writer.append(" > ").append(step).append("\n \n");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                writer.append("\n \n");
+            }
+        }
+        return path;
     }
 }

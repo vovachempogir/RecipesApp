@@ -2,6 +2,8 @@ package com.example.recipesapp.services;
 
 import com.example.recipesapp.model.Recipe;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.List;
 
 public interface RecipeService {
@@ -14,4 +16,6 @@ public interface RecipeService {
     Recipe editRecipe(long recipeNumber, Recipe recipe);
 
     boolean deleteRecipe(long recipeNumber);
+
+    Path createTextDataFile() throws IOException;
 }

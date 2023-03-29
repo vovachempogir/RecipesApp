@@ -14,4 +14,5 @@ public class Recipe {
     private int cookingTime;
     private ArrayList<Ingredient> ingredients;
     private ArrayList<String> cookingSteps;
+
 }
